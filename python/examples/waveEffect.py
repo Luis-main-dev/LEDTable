@@ -88,7 +88,7 @@ def frameEffect(strip):
         strip.show()
         time.sleep(0.5)
 
-def waveEffect(strip):
+def waveEffectOld(strip):
     r= 255
     g= 0
     b= 0
@@ -137,8 +137,28 @@ def waveEffect(strip):
             strip.show()
         numA+= 1
 
-#def waveEffectNew(strip):
+def waveEffect(strip):
+    # Farbe
+    r= 255
+    g= 0
+    b= 0
 
+    # Nummer aller LEDs
+    numA= 0
+
+    # markiert das Zeilenende
+    newLine = 11
+
+    while numA < 144:
+        strip.setPixelColor(numA, Color(r, g, b))
+
+        if numA == newLine:
+            time.sleep(1)
+            darkA = numA
+            while darkA >= 0:   # vorherige Zeilen löschen
+                strip.setPixelColor(darkA, Color(0, 0, 0))
+                darkA -= 1
+        numA += 1
 
 
 # Main program logic follows:
