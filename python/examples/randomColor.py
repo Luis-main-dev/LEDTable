@@ -77,11 +77,11 @@ if __name__ == '__main__':
     try:
         while True:
             print ('Start showing random Colors')
-            randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
-            # randomColorMatrix(strip)
+            #randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
+            randomColorMatrix(strip)
             time.sleep(2)
 
     except KeyboardInterrupt:
         if args.clear:
-            randomColor(strip, Color(0,0,0), 10)
-            #randomColorMatrix(strip)
+            #randomColor(strip, Color(0,0,0), 10)
+            randomColorMatrix(strip)
