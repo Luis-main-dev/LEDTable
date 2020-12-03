@@ -99,7 +99,7 @@ def waveEffect(strip):
     brtn= 0
     while numA < 144:
         strip.setPixelColor(numA, Color(r, g, b))
-        strip.setBrightness(numA, brtn)
+        strip.setBrightness(brtn)
         strip.show()
         if numA == newLine & lineRepeater < 5:
             numA-= 12
