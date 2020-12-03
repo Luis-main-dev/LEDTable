@@ -26,27 +26,27 @@ def randomColorMatrix(strip):
     g= 0
     b= 0
 
-    num= 0
+    count= 0
     mode= 0
-    while num < 5000:
-        num+=1
+    while count < 5000:
+        count+=1
         strip.setPixelColor(random.randint(0,143), Color(r, g, b))
 
-        if num >= 100:
+        if count >= 100:
             strip.setPixelColor(random.randint(0, 143), Color(0, 0, 0))
 
         strip.show()
         time.sleep(0.2)
-        if (num % 100) == 0:
+        if (count % 100) == 0:
             mode = random.randint(0, 4)
 
         if mode == 0 and r < 255:
             r+= 1
         if mode == 1 and g < 255:
             g+=1
-        if mode == 2 and r >= 0:
+        if mode == 2 and r > 0:
             r-=1
-        if mode == 3 and b <255 and g >= 0:
+        if mode == 3 and b < 255 and g > 0:
             b+=1
             g-=1
 
