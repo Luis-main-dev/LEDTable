@@ -27,7 +27,7 @@ def frameEffect(strip):
     b = 0
     for k in range(0, 10):
         for i in range(strip.numPixels()):
-            strip.setPixelColor(i, color(r,g,b))
+            strip.setPixelColor(i, Color(r,g,b))
             if(r < 255):
                 r+=1
             elif(g < 255):
