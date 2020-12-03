@@ -156,16 +156,16 @@ def frameWithRandomColorEffect(strip):
             mode = random.randint(0, 4)
 
         if mode == 0 and r < 255:
-            print("mode 0")
+            #print("mode 0")
             r+= 1
         if mode == 1 and g < 255:
-            print("mode 1")
+            #print("mode 1")
             g+=1
         if mode == 2 and r > 0:
-            print("mode 2")
+            #print("mode 2")
             r-=1
         if mode == 3 and b < 255 and g > 0:
-            print("mode 3")
+            #print("mode 3")
             b+=1
             g-=1
 
