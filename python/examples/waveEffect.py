@@ -89,17 +89,28 @@ def frameEffect(strip):
         time.sleep(0.5)
 
 def waveEffect(strip):
-    r=255
-    g=0
-    b=0
+    r= 255
+    g= 0
+    b= 0
 
-    newLine =11
-    for numA in range(0, 144):
+    newLine= 11
+    lineRepeater= 0
+    numA= 0
+    brtn= 0
+    while numA < 144:
         strip.setPixelColor(numA, Color(r, g, b))
+        strip.setBrightness(numA, brtn)
         strip.show()
-        if(numA == newLine):
-            newLine+=12
-            time.sleep(1)
+        if numA == newLine & lineRepeater < 5:
+            numA-= 12
+            brtn+= 2
+            lineRepeater+=1
+            time.sleep(0.1)
+
+        if numA == newLine & lineRepeater == 5:
+            newLine+= 12
+            brtn= 0
+            time.sleep(0.5)
 
 
 
