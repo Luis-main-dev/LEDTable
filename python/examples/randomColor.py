@@ -21,6 +21,34 @@ def randomColor(strip, color, wait_ms=50):
         strip.show()
         #time.sleep(wait_ms/1000.0) #Prüfen ob alle gleichzeitig an gehen, ansonsten auskommentieren
 
+def randomColorMatrix(strip):
+    r= 0
+    g= 0
+    b= 0
+
+    num= 0
+    mode= 0
+    while num < 5000:
+        num+=1
+        strip.setPixelcolor(random.randint(0,143), Color(r, g, b))
+        time.sleep(0.5)
+        if (num % 255) == 0:
+            mode = random.int(0, 4)
+
+
+        if mode == 0 and r <= 255:
+            r+= 1
+        if mode == 1 and g <= 255:
+            g+=1
+        if mode == 2 and r >= 0:
+            r-=1
+        if mode == 3 and b <=255 and g >= 0:
+            b+=1
+            g-=1
+
+
+
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -40,9 +68,11 @@ if __name__ == '__main__':
     try:
         while True:
             print ('Start showing random Colors')
-            randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
-            time.sleep(5)
+            # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
+            randomColorMatrix(strip)
+            time.sleep(2)
 
     except KeyboardInterrupt:
         if args.clear:
-            randomColor(strip, Color(0,0,0), 10)
+            # randomColor(strip, Color(0,0,0), 10)
+            randomColorMatrix(strip)
