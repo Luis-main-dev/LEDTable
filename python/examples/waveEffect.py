@@ -137,7 +137,7 @@ def waveEffect(strip):
             strip.show()
         numA+= 1
 
-def waveEffectNew(strip):
+#def waveEffectNew(strip):
 
 
 
