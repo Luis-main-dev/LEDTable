@@ -41,8 +41,8 @@ def frameEffect(strip):
 
 def singleColor(strip):
     strip.setPixelColor(0, Color(255,0,0))
-    strip.setPixelColor(12, Color(0,255,0))
-    strip.setPixelColor(144, Color(0,0,255))
+    strip.setPixelColor(11, Color(0,255,0))
+    strip.setPixelColor(143, Color(0,0,255))
     strip.show()
 
 
