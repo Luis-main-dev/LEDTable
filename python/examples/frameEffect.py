@@ -15,11 +15,28 @@ LED_INVERT     = False   # True to invert the signal (when using NPN transistor 
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 
-def frameEffect(strip, color, wait_ms=50):
+def randomColor(strip, color, wait_ms=50):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
         strip.show()
         #time.sleep(wait_ms/1000.0) #Prüfen ob alle gleichzeitig an gehen, ansonsten auskommentieren
+
+def frameEffect(strip):
+    r = 0
+    g = 0
+    b = 0
+    for k in range(0, 10):
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i, color(r,g,b))
+            if(r < 255):
+                r+=1
+            elif(g < 255):
+                g+= 1
+            elif(b < 255):
+                b+=1
+
+            strip.show()
+
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -40,9 +57,11 @@ if __name__ == '__main__':
     try:
         while True:
             print ('Start showing random Colors')
-            frameEffect(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
+            # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
+            frameEffect(strip)
             time.sleep(5)
 
     except KeyboardInterrupt:
         if args.clear:
-            frameEffect(strip, Color(0,0,0), 10)
+            # randomColor(strip, Color(0,0,0), 10)
+            frameEffect(strip)
