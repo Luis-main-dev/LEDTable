@@ -108,33 +108,33 @@ def waveEffect(strip):
             strip.setBrightness(brtn)
             strip.show()
 
-        if numA == newLine and lineRepeater == repeatingEnd:
-            darkA = numA
-            while darkA >= 0:
-                strip.setPixelColor(darkA, Color(0, 0, 0))
-                darkA-= 1
+            if lineRepeater == repeatingEnd:
+                darkA = numA
+                while darkA >= 0:
+                    strip.setPixelColor(darkA, Color(0, 0, 0))
+                    darkA-= 1
 
-            strip.show()
-            newLine+= 12
-            brtn= 0
-            lineRepeater = 0
-            print("Line is ending!")
-            # time.sleep(0.2)
+                strip.show()
+                newLine+= 12
+                brtn= 0
+                lineRepeater = 0
+                print("Line is ending!")
+                # time.sleep(0.2)
 
-        if numA == newLine and lineRepeater < repeatingEnd:
-            numA-= 11
-            brtn+= 1
-            lineRepeater+=1
-            print("Heller!")
-            time.sleep(0.01)
-        """"
-        if numA == newLine and lineRepeater > thadePoint and lineRepeater <= repeatingEnd:
-            numA-= 11
-            brtn-= 1
-            lineRepeater+=1
-            print("Dunkler!")
-            time.sleep(0.01)
-            """
+            if lineRepeater < repeatingEnd:
+                numA-= 11
+                brtn+= 1
+                lineRepeater+=1
+                print("Heller!")
+                time.sleep(0.01)
+            """"
+            if lineRepeater > thadePoint and lineRepeater <= repeatingEnd:
+                numA-= 11
+                brtn-= 1
+                lineRepeater+=1
+                print("Dunkler!")
+                time.sleep(0.01)
+                """
         numA+= 1
 
 
