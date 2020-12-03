@@ -115,14 +115,14 @@ def waveEffect(strip):
 
             strip.show()
             newLine+= 12
-            brtn= 2
+            brtn= 0
             lineRepeater = 0
             print("Line is ending!")
-            #time.sleep(0.2)
+            # time.sleep(0.2)
 
         if numA == newLine and lineRepeater < repeatingEnd:
             numA-= 11
-            brtn+= 1
+            brtn+= 0.5
             lineRepeater+=1
             print("Line is repeating!")
             time.sleep(0.01)
@@ -154,7 +154,7 @@ if __name__ == '__main__':
             # singleColor(strip)
             # frameEffect(strip)
             waveEffect(strip)
-            time.sleep(5)
+            #time.sleep(5)
 
     except KeyboardInterrupt:
         if args.clear:
