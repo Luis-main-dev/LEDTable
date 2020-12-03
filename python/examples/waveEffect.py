@@ -158,7 +158,7 @@ def waveEffect(strip):
     lineRepeaterMidPoint = 50
 
     # Helligkeit
-    brtn= 1
+    brtn= 0
 
     while numA < 144:
         numA += 1
@@ -169,8 +169,9 @@ def waveEffect(strip):
 
             if lineRepeater < lineRepeaterMidPoint:    # heller
                 brtn+=1
-            elif lineRepeater <= lineRepeaterEnd:    # dunkler
+            elif lineRepeater < lineRepeaterEnd:    # dunkler
                 brtn-=1
+                
             print("bntn ", brtn)
             strip.setBrightness(brtn)
             time.sleep(0.01)  # warten
