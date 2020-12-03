@@ -108,6 +108,12 @@ def waveEffect(strip):
             strip.show()
 
         if numA == newLine and lineRepeater == repeatingEnd:
+            darkA = numA
+            while darkA >= 0:
+                strip.setPixelColor(darkA, Color(0, 0, 0))
+                darkA-= 1
+
+            strip.show()
             newLine+= 12
             brtn= 2
             lineRepeater = 0
