@@ -46,7 +46,7 @@ def singleColor(strip):
     strip.show()
 
 def frameEffect(strip):
-    r = 255
+    r = 252
     g = 0
     b = 0
 
@@ -71,7 +71,6 @@ def frameEffect(strip):
         strip.setPixelColor(numC, Color(r, g, b))
         b+=21
         g-=21
-        r-=21
         strip.show()
         time.sleep(0.5)
 
