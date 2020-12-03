@@ -113,7 +113,7 @@ def waveEffect(strip):
             print("Line is ending!")
             time.sleep(0.2)
 
-        if numA == newLine and lineRepeater < 5:
+        if numA == newLine and lineRepeater < 20:
             numA-= 11
             brtn+= 1
             lineRepeater+=1
