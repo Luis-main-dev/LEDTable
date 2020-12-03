@@ -88,6 +88,95 @@ def frameEffect(strip):
         strip.show()
         time.sleep(0.5)
 
+# erzeugt einen Farbverlauf-Rahmen mit random Farben um die Matrix
+def frameWithRandomColorEffect(strip):
+    r = 252
+    g = 0
+    b = 0
+
+    for numA in range(0, 12):   # oben, rot zu gelb
+        strip.setPixelColor(numA, Color(r, g, b))
+        g+=21
+        strip.show()
+        time.sleep(0.5)
+
+    numB = 12
+    while numB <= 131:          # rechts, gelb zu grün
+        strip.setPixelColor(numB, Color(r, g, b))
+        if (numB % 2) == 0:
+            numB+= 23
+        else:
+            numB+=1
+        r-= 21
+        strip.show()
+        time.sleep(0.5)
+
+    for numC in range(132, 144):    # unten, grün zu blau
+        strip.setPixelColor(numC, Color(r, g, b))
+        b+=21
+        g-=21
+        strip.show()
+        time.sleep(0.5)
+
+    numD = 120
+    while numD >= 23:       # links, blau zu lila
+        strip.setPixelColor(numD, Color(r, g, b))
+        if (numD % 2) == 0:
+            numD-= 1
+        else:
+            numD-=23
+        r+=21
+        strip.show()
+        time.sleep(0.5)
+
+    r= 0
+    g= 0
+    b= 0
+
+    count= 0
+    mode= 0
+    number= 0
+    while count < 5000:
+        count+=1
+        number=random.randint(0,143)
+        if numberisnotfromtheframe(number) == False:
+            continue
+
+        strip.setPixelColor(number, Color(r, g, b))
+
+        if count > 80:
+            deleteNumber = random.randint(0, 143)
+            if numberisnotfromtheframe(deleteNumber) == False:
+                continue
+            strip.setPixelColor(deleteNumber, Color(0, 0, 0))
+
+        strip.show()
+        time.sleep(0.01)
+        if (count % 100) == 0:
+            mode = random.randint(0, 4)
+
+        if mode == 0 and r < 255:
+            print("mode 0")
+            r+= 1
+        if mode == 1 and g < 255:
+            print("mode 1")
+            g+=1
+        if mode == 2 and r > 0:
+            print("mode 2")
+            r-=1
+        if mode == 3 and b < 255 and g > 0:
+            print("mode 3")
+            b+=1
+            g-=1
+
+def numberisnotfromtheframe(number):
+    if number <= 12 and (number >= 132 and number <= 143):
+        return False
+    if number == 35 and number == 36 and number == 59 and number == 60 and number == 83 and number == 84 and number == 107 and number == 108 and number == 131 and number == 23 and number == 24 and number == 47 and number == 48 and number == 71 and number == 95 and number == 96 and number == 119 and number == 120:
+        return False
+    return True
+
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -110,7 +199,8 @@ if __name__ == '__main__':
             # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
             # showAllColors(strip)
             # singleColor(strip)
-            frameEffect(strip)
+            # frameEffect(strip)
+            frameWithRandomColorEffect(strip)
             time.sleep(5)
 
     except KeyboardInterrupt:
@@ -118,4 +208,5 @@ if __name__ == '__main__':
             # randomColor(strip, Color(0,0,0), 10)
             # showAllColors(strip)
             # singleColor(strip)
-            frameEffect(strip)
+            # frameEffect(strip)
+            frameWithRandomColorEffect(strip)
