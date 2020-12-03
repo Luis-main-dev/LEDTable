@@ -76,9 +76,9 @@ def frameEffect(strip):
     while numD >= 23:
         strip.setPixelColor(numD, Color(r, g, b))
         if (numD % 2) == 0:
-            numD-= 23
+            numD-= 1
         else:
-            numD-=1
+            numD-=23
         r+=2
         g+=2
         b+=2
