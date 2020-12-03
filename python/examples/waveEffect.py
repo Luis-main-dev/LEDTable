@@ -125,14 +125,14 @@ def waveEffect(strip):
             numA-= 11
             brtn+= 1
             lineRepeater+=1
-            print("Line is repeating!")
+            print("Heller!")
             time.sleep(0.01)
 
-        if numA == newLine and lineRepeater > thadePoint:
+        if numA == newLine and lineRepeater > thadePoint and lineRepeater >= repeatingEnd:
             numA-= 11
             brtn-= 1
             lineRepeater+=1
-            print("Line is repeating!")
+            print("Dunkler!")
             time.sleep(0.01)
         numA+= 1
 
