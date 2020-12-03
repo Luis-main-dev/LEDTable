@@ -88,6 +88,21 @@ def frameEffect(strip):
         strip.show()
         time.sleep(0.5)
 
+def waveEffect(strip):
+    r=255
+    g=0
+    b=0
+
+    newLine =11
+    for numA in range(0, 144):
+        strip.setPixelColor(numA, Color(r, g, b))
+        strip.show()
+        if(numA == newLine):
+            newLine+=12
+            time.sleep(1)
+
+
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -110,7 +125,8 @@ if __name__ == '__main__':
             # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
             # showAllColors(strip)
             # singleColor(strip)
-            frameEffect(strip)
+            # frameEffect(strip)
+            waveEffect(strip)
             time.sleep(5)
 
     except KeyboardInterrupt:
@@ -118,4 +134,5 @@ if __name__ == '__main__':
             # randomColor(strip, Color(0,0,0), 10)
             # showAllColors(strip)
             # singleColor(strip)
-            frameEffect(strip)
+            # frameEffect(strip)
+            waveEffect(strip)
