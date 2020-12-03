@@ -96,7 +96,7 @@ def waveEffect(strip):
     newLine= 11
     lineRepeater= 0
     numA= 0
-    brtn= 0
+    brtn= 0.1
     repeatingEnd = 50
     strip.setBrightness(brtn)
 
