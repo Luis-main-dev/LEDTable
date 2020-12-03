@@ -154,13 +154,27 @@ def waveEffect(strip):
     # maximale Anzahl der Zeilenwiederholungen
     lineRepeaterEnd = 100
 
+    # Mittelpunkt der Anzahl der Zeilenwiederholungen
+    lineRepeaterMidPoint = 50
+
+    # Helligkeit
+    brtn= 0
+
     while numA < 144:
         numA += 1
         strip.setPixelColor(numA, Color(r, g, b))
         strip.show()
 
         if numA == newLine: # Zeilen-Ende?
-            time.sleep(0.01)   # warten
+
+            if lineRepeater <= lineRepeaterMidPoint:    # heller
+                brtn+=1
+
+            if lineRepeater >= lineRepeaterMidPoint:    # dunkler
+                brtn-=1
+
+            strip.setBrightness(brtn)
+            time.sleep(0.01)  # warten
 
             if lineRepeater <= lineRepeaterEnd: # Wiederholungsende noch nicht erreicht
                 numA-= 11
