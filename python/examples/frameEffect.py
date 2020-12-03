@@ -39,6 +39,16 @@ def frameEffect(strip):
 
             strip.show()
 
+def singleColor(strip):
+    strip.setPixelColor(0, Color(255,0,0))
+    strip.show()
+
+    strip.setPixelColor(12, Color(0,255,0))
+    strip.show()
+
+    strip.setPixelColor(144, Color(0,0,255))
+    strip.show()
+
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -60,10 +70,12 @@ if __name__ == '__main__':
         while True:
             print ('Start showing random Colors')
             # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
-            frameEffect(strip)
+            # frameEffect(strip)
+            singleColor(strip)
             time.sleep(5)
 
     except KeyboardInterrupt:
         if args.clear:
             # randomColor(strip, Color(0,0,0), 10)
-            frameEffect(strip)
+            # frameEffect(strip)
+            singleColor(strip)
