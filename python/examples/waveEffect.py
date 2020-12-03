@@ -167,7 +167,7 @@ def waveEffect(strip):
 
         if numA == newLine: # Zeilen-Ende?
 
-            if lineRepeater <= lineRepeaterMidPoint:    # heller
+            if lineRepeater < lineRepeaterMidPoint:    # heller
                 brtn+=1
 
             if lineRepeater >= lineRepeaterMidPoint:    # dunkler
