@@ -105,8 +105,6 @@ def waveEffect(strip):
         strip.setPixelColor(numA, Color(r, g, b))
 
         if numA == newLine:
-            strip.setBrightness(brtn)
-            strip.show()
 
             if lineRepeater == repeatingEnd:
                 darkA = numA
@@ -135,6 +133,8 @@ def waveEffect(strip):
                 print("Dunkler!")
                 time.sleep(0.01)
                 """
+            strip.setBrightness(brtn)
+            strip.show()
         numA+= 1
 
 
