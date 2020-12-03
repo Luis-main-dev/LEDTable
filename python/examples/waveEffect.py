@@ -171,7 +171,7 @@ def waveEffect(strip):
                 brtn+=1
             elif lineRepeater <= lineRepeaterEnd:    # dunkler
                 brtn-=1
-
+            print("bntn ", brtn)
             strip.setBrightness(brtn)
             time.sleep(0.01)  # warten
 
