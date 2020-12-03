@@ -152,10 +152,10 @@ def waveEffect(strip):
     lineRepeater = 0
 
     # maximale Anzahl der Zeilenwiederholungen
-    lineRepeaterEnd = 100
+    lineRepeaterEnd = 50
 
     # Mittelpunkt der Anzahl der Zeilenwiederholungen
-    lineRepeaterMidPoint = 50
+    lineRepeaterMidPoint = 25
 
     # Helligkeit
     brtn= 0
@@ -168,9 +168,9 @@ def waveEffect(strip):
         if numA == newLine: # Zeilen-Ende?
 
             if lineRepeater < lineRepeaterMidPoint:    # heller
-                brtn+=1
+                brtn+=2
             elif lineRepeater < lineRepeaterEnd:    # dunkler
-                brtn-=1
+                brtn-=2
 
             #print("bntn ", brtn)
             strip.setBrightness(brtn)
