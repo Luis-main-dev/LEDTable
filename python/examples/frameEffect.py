@@ -10,7 +10,7 @@ LED_COUNT      = 144     # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
-LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
+LED_BRIGHTNESS = 55     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
@@ -144,7 +144,7 @@ def frameWithRandomColorEffect(strip):
 
         strip.setPixelColor(number, Color(r, g, b))
 
-        if count > 30:
+        if count > 10:
             deleteNumber = random.randint(0, 143)
             if numberisfromtheframe(deleteNumber):
                 continue
@@ -172,7 +172,7 @@ def frameWithRandomColorEffect(strip):
 def numberisfromtheframe(number):
     if number <= 12 or (number >= 132 and number <= 143):
         return True
-    if number == 35 or number == 36 or number == 59 or number == 60 or number == 83 or number == 84 or number == 107 or number == 108 or number == 131 or number == 23 or number == 24 or number == 47 or number == 48 or number == 71 or number == 71 or number == 95 or number == 96 or number == 119 or number == 120:
+    if number == 35 or number == 36 or number == 59 or number == 60 or number == 83 or number == 84 or number == 107 or number == 108 or number == 131 or number == 23 or number == 24 or number == 47 or number == 48 or number == 72 or number == 71 or number == 95 or number == 96 or number == 119 or number == 120:
         return True
     return False
 
