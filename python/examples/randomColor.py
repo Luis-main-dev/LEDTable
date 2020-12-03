@@ -31,6 +31,7 @@ def randomColorMatrix(strip):
     while num < 5000:
         num+=1
         strip.setPixelColor(random.randint(0,143), Color(r, g, b))
+        strip.show()
         time.sleep(0.5)
         if (num % 255) == 0:
             mode = random.int(0, 4)
