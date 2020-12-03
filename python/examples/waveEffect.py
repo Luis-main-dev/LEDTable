@@ -106,17 +106,17 @@ def waveEffect(strip):
             strip.setBrightness(brtn)
             strip.show()
 
-        if numA == newLine & lineRepeater < 5:
-            numA-= 11
-            brtn+= 2
-            lineRepeater+=1
-            time.sleep(0.1)
-
         if numA == newLine & lineRepeater == 5:
             newLine+= 12
             brtn= 2
             lineRepeater = 0
             time.sleep(0.5)
+
+        if numA == newLine & lineRepeater < 5:
+            numA-= 11
+            brtn+= 2
+            lineRepeater+=1
+            time.sleep(0.1)
 
         numA+= 1
 
