@@ -151,7 +151,7 @@ def waveEffect(strip):
 
     while numA < 144:
         strip.setPixelColor(numA, Color(r, g, b))
-
+        strip.show()
         if numA == newLine:
             time.sleep(1)
             darkA = numA
