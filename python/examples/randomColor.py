@@ -32,21 +32,25 @@ def randomColorMatrix(strip):
         count+=1
         strip.setPixelColor(random.randint(0,143), Color(r, g, b))
 
-        if count >= 100:
+        if count > 80:
             strip.setPixelColor(random.randint(0, 143), Color(0, 0, 0))
 
         strip.show()
-        time.sleep(0.2)
+        time.sleep(0.01)
         if (count % 100) == 0:
             mode = random.randint(0, 4)
 
         if mode == 0 and r < 255:
+            print("mode 0")
             r+= 1
         if mode == 1 and g < 255:
+            print("mode 1")
             g+=1
         if mode == 2 and r > 0:
+            print("mode 2")
             r-=1
         if mode == 3 and b < 255 and g > 0:
+            print("mode 3")
             b+=1
             g-=1
 
