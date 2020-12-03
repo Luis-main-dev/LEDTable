@@ -139,14 +139,14 @@ def frameWithRandomColorEffect(strip):
     while count < 5000:
         count+=1
         number=random.randint(0,143)
-        if numberisnotfromtheframe(number) == False:
+        if numberisfromtheframe(number):
             continue
 
         strip.setPixelColor(number, Color(r, g, b))
 
         if count > 80:
             deleteNumber = random.randint(0, 143)
-            if numberisnotfromtheframe(deleteNumber) == False:
+            if numberisfromtheframe(deleteNumber):
                 continue
             strip.setPixelColor(deleteNumber, Color(0, 0, 0))
 
@@ -169,12 +169,12 @@ def frameWithRandomColorEffect(strip):
             b+=1
             g-=1
 
-def numberisnotfromtheframe(number):
-    if number <= 12 and (number >= 132 and number <= 143):
-        return False
-    if number == 35 and number == 36 and number == 59 and number == 60 and number == 83 and number == 84 and number == 107 and number == 108 and number == 131 and number == 23 and number == 24 and number == 47 and number == 48 and number == 71 and number == 95 and number == 96 and number == 119 and number == 120:
-        return False
-    return True
+def numberisfromtheframe(number):
+    if number <= 12 or (number >= 132 and number <= 143):
+        return True
+    if number == 35 or number == 36 or number == 59 or number == 60 or number == 83 or number == 84 or number == 107 or number == 108 or number == 131 or number == 23 or number == 24 or number == 47 or number == 48 or number == 71 or number == 95 or number == 96 or number == 119 or number == 120:
+        return True
+    return False
 
 
 # Main program logic follows:
