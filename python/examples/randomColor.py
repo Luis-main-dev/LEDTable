@@ -26,12 +26,12 @@ def strobo(strip):
     count = 0
     while count < 5000:
         for i in range(strip.numPixels()):
-            strip.setPixelColor(i, Color(0,0,255))
-        time.sleep(0.5)
+            strip.setPixelColor(i, Color(255,255,255))
+        time.sleep(0.1)
         strip.show()
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(0,0,0))
-        time.sleep(0.5)
+        time.sleep(0.1)
         strip.show()
         count+=1
 
