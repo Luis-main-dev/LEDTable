@@ -46,9 +46,9 @@ def singleColor(strip):
     strip.show()
 
 def frameEffect(strip):
-    r = 0
-    g = 0
-    b = 0
+    r = 50
+    g = 30
+    b = 10
     for numA in range(0, 11):
         strip.setPixelColor(numA, Color(r, g, b))
         r+=2
