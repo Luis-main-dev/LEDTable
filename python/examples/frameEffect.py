@@ -144,11 +144,13 @@ def frameWithRandomColorEffect(strip):
 
         strip.setPixelColor(number, Color(r, g, b))
 
-        if count > 10:
+        deleteOlds = 0
+        while deleteOlds < 10:
             deleteNumber = random.randint(0, 143)
             if numberisfromtheframe(deleteNumber):
                 continue
             strip.setPixelColor(deleteNumber, Color(0, 0, 0))
+            deleteOlds+=1
 
         strip.show()
         time.sleep(0.01)
