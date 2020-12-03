@@ -121,19 +121,20 @@ def waveEffect(strip):
             print("Line is ending!")
             # time.sleep(0.2)
 
-        if numA == newLine and lineRepeater < thadePoint:
+        if numA == newLine and lineRepeater < repeatingEnd:
             numA-= 11
             brtn+= 1
             lineRepeater+=1
             print("Heller!")
             time.sleep(0.01)
-
+        """"
         if numA == newLine and lineRepeater > thadePoint and lineRepeater <= repeatingEnd:
             numA-= 11
             brtn-= 1
             lineRepeater+=1
             print("Dunkler!")
             time.sleep(0.01)
+            """
         numA+= 1
 
 
