@@ -34,7 +34,7 @@ def randomColorMatrix(strip):
         strip.show()
         time.sleep(0.2)
         if (num % 100) == 0:
-            mode = random.int(0, 4)
+            mode = random.randint(0, 4)
 
 
         if mode == 0 and r <= 255:
