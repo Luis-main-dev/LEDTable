@@ -168,9 +168,9 @@ def waveEffect(strip):
         if numA == newLine: # Zeilen-Ende?
 
             if lineRepeater < lineRepeaterMidPoint:    # heller
-                brtn+=2
+                brtn+=4
             elif lineRepeater < lineRepeaterEnd:    # dunkler
-                brtn-=2
+                brtn-=4
 
             #print("bntn ", brtn)
             strip.setBrightness(brtn)
