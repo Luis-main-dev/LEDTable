@@ -83,6 +83,7 @@ def frameEffect(strip):
         g+=2
         b+=2
 
+    strip.show()
 
 
 
