@@ -158,7 +158,7 @@ def waveEffect(strip):
     lineRepeaterMidPoint = 50
 
     # Helligkeit
-    brtn= 0
+    brtn= 1
 
     while numA < 144:
         numA += 1
