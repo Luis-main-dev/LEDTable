@@ -169,8 +169,7 @@ def waveEffect(strip):
 
             if lineRepeater < lineRepeaterMidPoint:    # heller
                 brtn+=1
-
-            if lineRepeater >= lineRepeaterMidPoint:    # dunkler
+            elif lineRepeater <= lineRepeaterEnd:    # dunkler
                 brtn-=1
 
             strip.setBrightness(brtn)
