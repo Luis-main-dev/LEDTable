@@ -98,6 +98,7 @@ def waveEffect(strip):
     numA= 0
     brtn= 0
     repeatingEnd = 255
+    thadePoint = 125
     strip.setBrightness(brtn)
 
     while numA < 144:
@@ -120,9 +121,16 @@ def waveEffect(strip):
             print("Line is ending!")
             # time.sleep(0.2)
 
-        if numA == newLine and lineRepeater < repeatingEnd:
+        if numA == newLine and lineRepeater < thadePoint:
             numA-= 11
             brtn+= 1
+            lineRepeater+=1
+            print("Line is repeating!")
+            time.sleep(0.01)
+
+        if numA == newLine and lineRepeater > thadePoint:
+            numA-= 11
+            brtn-= 1
             lineRepeater+=1
             print("Line is repeating!")
             time.sleep(0.01)
