@@ -101,24 +101,24 @@ def waveEffect(strip):
 
     while numA < 144:
         strip.setPixelColor(numA, Color(r, g, b))
-        strip.setBrightness(brtn)
-        strip.show()
 
-        if numA == newLine & lineRepeater == 5:
+        if numA == newLine:
+            strip.setBrightness(brtn)
+            strip.show()
+
+        if numA == newLine and lineRepeater == 5:
             newLine+= 12
             brtn= 2
             lineRepeater = 0
             print("Line is ending!")
             time.sleep(2)
 
-        if numA == newLine & lineRepeater < 5:
+        if numA == newLine and lineRepeater < 5:
             numA-= 11
             brtn+= 2
             lineRepeater+=1
             print("Line is repeating!")
             time.sleep(0.5)
-
-
         numA+= 1
 
 
