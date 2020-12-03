@@ -56,7 +56,6 @@ def frameEffect(strip):
         strip.show()
         time.sleep(0.5)
 
-
     numB = 12
     while numB <= 131:          # rechts, gelb zu grün
         strip.setPixelColor(numB, Color(r, g, b))
@@ -65,7 +64,6 @@ def frameEffect(strip):
         else:
             numB+=1
         r-= 21
-        b+=2
         strip.show()
         time.sleep(0.5)
 
