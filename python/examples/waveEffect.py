@@ -115,6 +115,7 @@ def waveEffect(strip):
         if numA == newLine & lineRepeater == 5:
             newLine+= 12
             brtn= 2
+            lineRepeater = 0
             time.sleep(0.5)
 
         numA+= 1
