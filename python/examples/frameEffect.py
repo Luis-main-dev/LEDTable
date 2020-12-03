@@ -46,38 +46,47 @@ def singleColor(strip):
     strip.show()
 
 def frameEffect(strip):
-    r = 50
-    g = 30
-    b = 30
-    for numA in range(0, 12):   # oben
+    r = 255
+    g = 0
+    b = 0
+
+    for numA in range(0, 12):   # oben, rot zu gelb
         strip.setPixelColor(numA, Color(r, g, b))
-        r+=3
+        g+=21
+        strip.show()
+        time.sleep(0.5)
+
 
     numB = 12
-    while numB <= 131:          # rechts
+    while numB <= 131:          # rechts, gelb zu grün
         strip.setPixelColor(numB, Color(r, g, b))
         if (numB % 2) == 0:
             numB+= 23
         else:
             numB+=1
-        r+=3
+        r-= 21
+        b+=2
+        strip.show()
+        time.sleep(0.5)
 
-    for numC in range(132, 144):    # unten
+    for numC in range(132, 144):    # unten, grün zu blau
         strip.setPixelColor(numC, Color(r, g, b))
-        r+=3
+        b+=21
+        g-=21
+        r-=21
+        strip.show()
+        time.sleep(0.5)
 
     numD = 120
-    while numD >= 23:       # links
+    while numD >= 23:       # links, blau zu lila
         strip.setPixelColor(numD, Color(r, g, b))
         if (numD % 2) == 0:
             numD-= 1
         else:
             numD-=23
-        r+=3
-
-    strip.show()
-
-
+        r+=21
+        strip.show()
+        time.sleep(0.5)
 
 # Main program logic follows:
 if __name__ == '__main__':
