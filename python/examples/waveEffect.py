@@ -153,7 +153,9 @@ def waveEffect(strip):
         strip.setPixelColor(numA, Color(r, g, b))
         strip.show()
         if numA == newLine:
-            time.sleep(1)
+            time.sleep(1)   # warten
+            newLine+=12     # neues Zeilenende
+
             darkA = numA
             while darkA >= 0:   # vorherige Zeilen löschen
                 strip.setPixelColor(darkA, Color(0, 0, 0))
