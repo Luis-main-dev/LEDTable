@@ -172,9 +172,9 @@ def waveEffect(strip):
             elif lineRepeater < lineRepeaterEnd:    # dunkler
                 brtn-=1
 
-            print("bntn ", brtn)
+            #print("bntn ", brtn)
             strip.setBrightness(brtn)
-            time.sleep(0.001)  # warten
+            time.sleep(0.0001)  # warten
 
             if lineRepeater <= lineRepeaterEnd: # Wiederholungsende noch nicht erreicht
                 numA-= 11
