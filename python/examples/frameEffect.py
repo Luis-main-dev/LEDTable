@@ -21,7 +21,7 @@ def randomColor(strip, color, wait_ms=50):
         strip.show()
         #time.sleep(wait_ms/1000.0) #Prüfen ob alle gleichzeitig an gehen, ansonsten auskommentieren
 
-def frameEffect(strip):
+def showAllColors(strip):
     r = 0
     g = 0
     b = 0
@@ -45,6 +45,46 @@ def singleColor(strip):
     strip.setPixelColor(143, Color(0,0,255))
     strip.show()
 
+def frameEffect(strip):
+    r = 0
+    g = 0
+    b = 0
+    for numA in range(0, 11):
+        strip.setPixelColor(numA, Color(r, g, b))
+        r+=2
+        g+=2
+        b+=2
+
+    numB = 12
+    while numB <= 131:
+        strip.setPixelColor(numB, Color(r, g, b))
+        if (numB % 2) == 0:
+            numB+= 23
+        else:
+            numB+=1
+        r+=2
+        g+=2
+        b+=2
+
+    for numC in range(132, 143):
+        strip.setPixelColor(numC, Color(r, g, b))
+        r+=2
+        g+=2
+        b+=2
+
+    numD = 120
+    while numD >= 23:
+        strip.setPixelColor(numD, Color(r, g, b))
+        if (numD % 2) == 0:
+            numD-= 23
+        else:
+            numD-=1
+        r+=2
+        g+=2
+        b+=2
+
+
+
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -66,12 +106,14 @@ if __name__ == '__main__':
         while True:
             print ('Start showing random Colors')
             # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
-            # frameEffect(strip)
-            singleColor(strip)
+            # showAllColors(strip)
+            # singleColor(strip)
+            frameEffect(strip)
             time.sleep(5)
 
     except KeyboardInterrupt:
         if args.clear:
             # randomColor(strip, Color(0,0,0), 10)
-            # frameEffect(strip)
-            singleColor(strip)
+            # showAllColors(strip)
+            # singleColor(strip)
+            frameEffect(strip)
