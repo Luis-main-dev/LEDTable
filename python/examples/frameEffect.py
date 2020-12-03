@@ -153,8 +153,8 @@ def frameWithRandomColorEffect(strip):
             deleteOlds+=1
 
         strip.show()
-        time.sleep(0.05)
-        if (count % 100) == 0:
+        time.sleep(0.1)
+        if (count % 20) == 0:
             mode = random.randint(0, 4)
 
         if mode == 0 and r < 255:
