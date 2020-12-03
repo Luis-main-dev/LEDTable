@@ -144,23 +144,35 @@ def waveEffect(strip):
     b= 0
 
     # Nummer aller LEDs
-    numA= 0
+    numA= -1
 
     # markiert das Zeilenende
     newLine = 11
 
+    lineRepeater = 0
+
+    # maximale Anzahl der Zeilenwiederholungen
+    lineRepeaterEnd = 100
+
     while numA < 144:
+        numA += 1
         strip.setPixelColor(numA, Color(r, g, b))
         strip.show()
-        if numA == newLine:
-            time.sleep(1)   # warten
-            newLine+=12     # neues Zeilenende
 
-            darkA = numA
-            while darkA >= 0:   # vorherige Zeilen löschen
-                strip.setPixelColor(darkA, Color(0, 0, 0))
-                darkA -= 1
-        numA += 1
+        if numA == newLine: # Zeilen-Ende?
+            time.sleep(0.01)   # warten
+
+            if lineRepeater <= lineRepeaterEnd: # Wiederholungsende noch nicht erreicht
+                numA-= 11
+                lineRepeater+= 1
+            else:               # neue Zeile beginnen
+                newLine+=12
+                lineRepeater= 0
+
+                darkA = numA    # vorherige Zeilen löschen
+                while darkA >= 0:
+                    strip.setPixelColor(darkA, Color(0, 0, 0))
+                    darkA -= 1
 
 
 # Main program logic follows:
