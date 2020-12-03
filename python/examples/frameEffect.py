@@ -40,9 +40,9 @@ if __name__ == '__main__':
     try:
         while True:
             print ('Start showing random Colors')
-            randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
+            frameEffect(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
             time.sleep(5)
 
     except KeyboardInterrupt:
         if args.clear:
-            randomColor(strip, Color(0,0,0), 10)
+            frameEffect(strip, Color(0,0,0), 10)
