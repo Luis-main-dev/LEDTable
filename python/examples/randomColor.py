@@ -14,14 +14,14 @@ LED_BRIGHTNESS = 1     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
-
+# Der Reihe nach alle LEDs mit random Color.
 def randomColor(strip, color, wait_ms=50):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
-
+        strip.show()
         #time.sleep(wait_ms/1000.0) #Prüfen ob alle gleichzeitig an gehen, ansonsten auskommentieren
-    strip.show()
 
+# Stroboskop-Effekt
 def strobo(strip):
     count = 0
     while count < 5000:
@@ -35,7 +35,8 @@ def strobo(strip):
         strip.show()
         count+=1
 
-def randomColorMatrix(strip):
+# Random Position mit random Color.
+def randomColorAndPosition(strip):
     r= 0
     g= 0
     b= 0
@@ -68,9 +69,6 @@ def randomColorMatrix(strip):
             b+=1
             g-=1
 
-
-
-
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -91,12 +89,12 @@ if __name__ == '__main__':
         while True:
             print ('Start showing random Colors')
             #randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
-            randomColorMatrix(strip)
             #strobo(strip)
+            randomColorAndPosition(strip)
             time.sleep(2)
 
     except KeyboardInterrupt:
         if args.clear:
             #randomColor(strip, Color(0,0,0), 10)
-            randomColorMatrix(strip)
             #strobo(strip)
+            randomColorAndPosition(strip)

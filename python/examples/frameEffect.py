@@ -14,40 +14,7 @@ LED_BRIGHTNESS = 15     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
-
-def randomColor(strip, color, wait_ms=50):
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, color)
-        strip.show()
-        #time.sleep(wait_ms/1000.0) #Prüfen ob alle gleichzeitig an gehen, ansonsten auskommentieren
-
-# zeigt alle LEDs mit Farbe
-def showAllColors(strip):
-    r = 0
-    g = 0
-    b = 0
-    for k in range(0, 10):
-        for i in range(strip.numPixels()):
-            time.sleep(0.1)
-            strip.setPixelColor(i, Color(r,g,b))
-            print ("r ", r, ", g ", g, ", b ", b)
-            if(r < 255):
-                r+=1
-            elif(g < 255):
-                g+= 1
-            elif(b < 255):
-                b+=1
-
-            strip.show()
-
-# zeigt markante LEDs (Debug Info)
-def singleColor(strip):
-    strip.setPixelColor(0, Color(255,0,0))
-    strip.setPixelColor(11, Color(0,255,0))
-    strip.setPixelColor(143, Color(0,0,255))
-    strip.show()
-
-# erzeugt einen Farbverlauf-Rahmen um die Matrix
+# erzeugt einen bunten Rahmen um die Matrix
 def frameEffect(strip):
     r = 252
     g = 0
@@ -88,7 +55,7 @@ def frameEffect(strip):
         strip.show()
         time.sleep(0.5)
 
-# erzeugt einen Farbverlauf-Rahmen mit random Farben um die Matrix
+# erzeugt einen bunten Rahmen mit bunten Farben in der Mitte.
 def frameWithRandomColorEffect(strip):
     r = 252
     g = 0
@@ -171,6 +138,7 @@ def frameWithRandomColorEffect(strip):
             b+=1
             g-=1
 
+# prüft ob die Zahl sich im Rahmen befindet.
 def numberisfromtheframe(number):
     if number <= 12 or (number >= 132 and number <= 143):
         return True
@@ -198,17 +166,11 @@ if __name__ == '__main__':
     try:
         while True:
             print ('Start showing random Colors')
-            # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
-            # showAllColors(strip)
-            # singleColor(strip)
             # frameEffect(strip)
             frameWithRandomColorEffect(strip)
             time.sleep(5)
 
     except KeyboardInterrupt:
         if args.clear:
-            # randomColor(strip, Color(0,0,0), 10)
-            # showAllColors(strip)
-            # singleColor(strip)
             # frameEffect(strip)
             frameWithRandomColorEffect(strip)

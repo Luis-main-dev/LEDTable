@@ -14,6 +14,7 @@ LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
+# Zeile für Zeile wird angezeigt und dann wieder deaktiviert.
 def waveEffect(strip):
     # Farbe
     r= 255
@@ -65,8 +66,6 @@ def waveEffect(strip):
                     strip.setPixelColor(darkA, Color(0, 0, 0))
                     darkA -= 1
 
-
-
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -86,17 +85,9 @@ if __name__ == '__main__':
     try:
         while True:
             print ('Start showing random Colors')
-            # randomColor(strip, Color(random.randint(0,255),random.randint(0,255), random.randint(0,255)))
-            # showAllColors(strip)
-            # singleColor(strip)
-            # frameEffect(strip)
             waveEffect(strip)
             #time.sleep(5)
 
     except KeyboardInterrupt:
         if args.clear:
-            # randomColor(strip, Color(0,0,0), 10)
-            # showAllColors(strip)
-            # singleColor(strip)
-            # frameEffect(strip)
             waveEffect(strip)
