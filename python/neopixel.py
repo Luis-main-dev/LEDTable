@@ -150,7 +150,7 @@ class Adafruit_NeoPixel(object):
 		"""Get the 24-bit RGB color value for the LED at position n."""
 		return self._led_data[n]
     
-    def getNumOfCoordinates(self, yCoordinate, xCoordinate):
+    def getNumOfCoordinates(yCoordinate, xCoordinate):
         """Give the function the y-Coordinate and the x-Coordinate
         the function will return the LED-number of these coordinates"""
         system = []
