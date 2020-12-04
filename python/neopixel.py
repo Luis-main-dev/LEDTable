@@ -149,3 +149,33 @@ class Adafruit_NeoPixel(object):
 	def getPixelColor(self, n):
 		"""Get the 24-bit RGB color value for the LED at position n."""
 		return self._led_data[n]
+    
+    def getNumOfCoordinates(self, yCoordinate, xCoordinate):
+        """Give the function the y-Coordinate and the x-Coordinate
+        the function will return the LED-number of these coordinates"""
+        system = []
+        yAchse = 0
+        while yAchse <= 11:
+            system.append([yAchse])
+            yAchse += 1
+        y = 0   #Zeile y
+        a = 143 #Anfang der Zeile
+        e = 131 #Ende der Zeile
+        n = -1  #für die Range Funktion, absteigend, aufsteigend
+        count = 0
+        while count < 12:
+            if count % 2 == 0:
+                system[y] = range(a, e, n)
+                a -= 23
+                e += 1
+                n = n*-1
+            else:
+                system[y] = range(a, e, n)
+                a -= 1
+                e -= 25
+                n = n * -1
+            y += 1
+            count += 1
+
+        return system[yCoordinate][xCoordinate]
+
